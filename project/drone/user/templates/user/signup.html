@@ -1,0 +1,49 @@
+{% extends 'user/layout.html' %}
+
+{% block title %}Signup{% endblock %}
+
+{% block body %}
+<body>
+    <div class="container">
+        <h1>SIGNUP</h1>
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+            <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <form method="post" class="form-controls">
+            {% csrf_token %}
+            <div class="col-left">
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" id="first_name" required>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required>
+                <label for="password1">Password</label>
+                <input type="password" name="password1" id="password1" required>
+            </div>
+
+            <div class="col-right">
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name" id="last_name" required>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+                <label for="password2">Confirm Password</label>
+                <input type="password" name="password2" id="password2" required>
+            </div>
+
+            <div class="bottom">
+                <label for="authority">Role</label>
+                <select name="authority" id="authority" required>
+                    <option value="ตำรวจจราจร">ตำรวจจราจร</option>
+                    <option value="ตํารวจส่วนท้องถิ่น">ตํารวจส่วนท้องถิ่น</option>
+                    <option value="กรมทางหลวง">กรมทางหลวง</option>
+                </select>
+                <input class="button" type="submit" value="SIGNUP">
+            </div>
+        </form>
+        <p class="center">Already have an account? <a href="{% url 'user:signin' %}">Login</a></p>
+    </div>
+</body>
+{% endblock %}

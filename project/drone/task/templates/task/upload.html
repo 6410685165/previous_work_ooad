@@ -1,0 +1,45 @@
+{% extends "task/layout.html" %}
+
+{% block body %}
+    <h1>New Task</h1>
+    
+    <form enctype="multipart/form-data" action="/new_task/" method="POST">
+        {% csrf_token %}
+        <label for="vdo">Select Video:</label>
+        <input type="file" id="vdo" name="vdo" accept="video/*" required>
+        <div class="form-controls">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name"/>
+            <br>
+
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location"/>
+            <br>
+
+            <div class="col-left">
+                <label for="date_collect">Date collect</label>
+                <input class="col-left" type="date" id="date_collect" name="date_collect" required>
+            </div>
+
+            <div class="col-right">
+                Authority <br>
+                <div>
+                    <input type="checkbox" id="ตำรวจจราจร" name="authority_need" value="ตำรวจจราจร"/>
+                    <label for="ตำรวจจราจร">ตำรวจจราจร &emsp;</label>
+                    <input type="checkbox" id="ตํารวจส่วนท้องถิ่น" name="authority_need" value="ตํารวจส่วนท้องถิ่น"/>
+                    <label for="ตํารวจส่วนท้องถิ่น">ตํารวจส่วนท้องถิ่น &emsp;</label>
+                    <input type="checkbox" id="กรมทางหลวง" name="authority_need" value="กรมทางหลวง"/>
+                    <label for="กรมทางหลวง">กรมทางหลวง</label>
+                </div>
+            </div>
+            <br>
+
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description"/>
+            <br>
+        </div>
+        <input class="button" type="submit" value="SAVE">
+    </form>
+
+
+{% endblock %}

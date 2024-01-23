@@ -1,0 +1,23 @@
+1. Creating virtual env
+python3 -m venv yolov7objtracking
+cd yolov7objtracking
+cd Scripts
+activate
+cd ..
+cd ..
+
+2. requirements
+pip install -r requirements.txt
+
+3. detection and tracking
+
+python detect_and_track.py  --source "video2.mp4"
+
+
+best_yolov7.pt is our trained weight.
+
+pip install djangorestframework
+mod_wsgi
+eventlet
+pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117  -f https://download.pytorch.org/whl/torch_stable.html
+celery -A traffy  worker -P eventlet -c 1

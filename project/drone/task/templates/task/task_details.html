@@ -1,0 +1,40 @@
+{% extends "task/layout.html" %}
+
+{% block body %}
+    <h1>Task Details</h1>
+
+    <div class="border-text1 pg-left1-2">
+        <h3>Preview</h3>
+        <video id="video" controls autoplay>
+            <source src='{{ task.video.url }}' type="video/mp4">
+            Your browser does not support the video tag.          
+        </video>
+    </div>
+
+    <a class="button" href="{% url 'task:add_loop' task.id %}"><i class="fa-duotone fa-plus"></i> New Loop</a><br><br>
+    
+    <div class="border-text2 pg1-2">
+        <h3>Loop</h3>
+        <table class="loop-table">
+            <tr>
+                <th>Name</th>
+                <th>Settings</th>
+                <th>Delete</th>
+            </tr>
+            {% for loop in loops %}
+            <tr>
+                <td>{{ loop.loop_name }}</td>
+                <td><a href="{% url 'task:view_loop' loop.id %}">View & Edit Settings</a></td>
+                <td><a href="{% url 'task:delete_loop' loop.id task.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a class="button bttm-left" href="{% url 'task:index' %}">Back</a>
+    <form class="bttm-right" action="/api/upload/" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="task_id" id="task_id" value="{{task.id}}">
+        <input class="button" type="submit" value="CONFIRM">
+    </form>
+    
+{% endblock %}

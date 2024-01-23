@@ -1,0 +1,50 @@
+{% extends task|add:'task/layout.html'%}
+
+{% block body %}
+
+<body>
+  <h1>Users</h1>
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'ตำรวจจราจร')" id="defaultOpen">ตำรวจจราจร</button>
+    <button class="tablinks" onclick="openTab(event, 'ตํารวจส่วนท้องถิ่น')">ตํารวจส่วนท้องถิ่น</button>
+    <button class="tablinks" onclick="openTab(event, 'กรมทางหลวง')">กรมทางหลวง</button>
+  </div>
+
+  <!-- Tab content -->
+  <div id="ตำรวจจราจร" class="tabcontent">
+    {% for account in traffic_police %}
+    <p><a href="{% url 'user:view_profile' account.user.username %}">{{ account.user.username }}</a></p>
+    {% endfor %}
+  </div>
+
+  <div id="ตํารวจส่วนท้องถิ่น" class="tabcontent">
+    {% for account in local_police %}
+    <p><a href="{% url 'user:view_profile' account.user.username %}">{{ account.user.username }}</a></p>
+    {% endfor %}
+  </div>
+
+  <div id="กรมทางหลวง" class="tabcontent">
+    {% for account in department_of_highway %}
+    <p><a href="{% url 'user:view_profile' account.user.username %}">{{ account.user.username }}</a></p>
+    {% endfor %}
+  </div>
+
+  
+  <script>
+    function openTab(event, role) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(role).style.display = "block";
+      event.currentTarget.className += " active";
+    }
+    document.getElementById("defaultOpen").click();
+  </script>
+</body>
+{% endblock %}

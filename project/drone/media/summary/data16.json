@@ -1,0 +1,32 @@
+[
+    {
+        "loop": "1",
+        "type": "car",
+        "direction": "LEFT"
+    },
+    {
+        "loop": "1",
+        "type": "car",
+        "direction": "RIGHT"
+    },
+    {
+        "loop": "2",
+        "type": "car",
+        "direction": "RIGHT"
+    },
+    {
+        "loop": "1",
+        "type": "car",
+        "direction": "LEFT"
+    },
+    {
+        "loop": "2",
+        "type": "car",
+        "direction": "RIGHT"
+    },
+    {
+        "loop": "1",
+        "type": "car",
+        "direction": "LEFT"
+    }
+]

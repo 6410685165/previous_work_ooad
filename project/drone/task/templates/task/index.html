@@ -1,0 +1,50 @@
+{% extends "task/layout.html" %}
+
+{% block body %}
+    <h1>Tasks</h1>
+    <div id="search">
+        <form method="POST" action="{% url 'task:search' %}">
+            {% csrf_token %}
+            <label for="search">Search</label>
+            <input type="text" name="search"/>
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+    </div>
+    <a class="button" href="{% url 'task:upload' %}"><i class="fa-duotone fa-plus"></i> New</a>
+    <table id="task-table">
+        <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Owner</th>
+            <th>Date Modify</th>
+            <th>Date Upload</th>
+            <th>Edit/Del</th>
+        </tr>
+        {% for task in tasks %}
+            {% if account.authority in task.authority_need or user.is_superuser %}
+            <tr>
+                <td>{{task.date_collect}}</td>
+                <td><a href="{% url 'task:results' task.id %}">{{task.name}}</a></td>
+                <td>{{task.location}}</td>
+                <td>{{task.result.status}}</td>
+                <td>{{task.owner}}</td>
+                <td>{{task.date_modify}}</td>
+                <td>{{task.date_upload}}</td>
+                <td>
+                    {% if request.user.username == task.owner or user.is_superuser %}
+                    <a href="{% url 'task:task_details' task.id %}"><i class="fa-solid fa-pen"></i></a>
+                    <label>/</label>
+                    <a href="{% url 'task:delete_task' task.id %}" onclick="return confirm('Delete Task?');"><i class="fa-solid fa-trash"></i></a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    
+
+{% endblock %}

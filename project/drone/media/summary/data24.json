@@ -1,0 +1,91 @@
+{
+    "loops": [
+        {
+            "name": "st",
+            "direction": [
+                "",
+                "Left",
+                "Right",
+                "Straight"
+            ],
+            "type": [
+                [
+                    "Car",
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    "Truck",
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    "Bike",
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "name": "nd",
+            "direction": [
+                "",
+                "Left",
+                "Right",
+                "Straight"
+            ],
+            "type": [
+                [
+                    "Car",
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    "Truck",
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    "Bike",
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "name": "rd",
+            "direction": [
+                "",
+                "Left",
+                "Right",
+                "Straight"
+            ],
+            "type": [
+                [
+                    "Car",
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    "Truck",
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    "Bike",
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        }
+    ]
+}

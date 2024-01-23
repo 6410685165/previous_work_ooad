@@ -1,0 +1,42 @@
+{% extends task|add:'task/layout.html'%}
+
+{% block body %}
+<body>
+    {% if account == user_account %}
+    <h1>My Profile</h1>
+    {% else %}
+    <h1>{{ user_account.user.username }} Profile</h1>
+    {% endif %}
+
+    <div class="profile-controls">
+        <div class="user-info">
+            <img src="{{ user_account.profile_pics.url }}" alt="">
+            <h2>Username: {{ user_account.user.username }}</h2>
+            <p>Email: {{ user_account.user.email }}</p>
+            <p>{{ user_account.user.first_name }} {{ user_account.user.last_name }}</p>
+            <p>Role: {{ user_account.authority }}</p>
+        </div>
+
+        <div class="user-task">
+            {% if account == None %}
+                <h2>{{ user_account.user.username }}'s tasks</h2>
+            {% else %}
+                <h2>Your tasks</h2>
+            {% endif %}
+            {% for task in user_task %}
+                <table id="pf-table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr>
+                        <td>{{task.date_collect}}</td>
+                        <td><a href="{% url 'task:results' task.id %}">{{task.name}}</a></td>
+                    </tr>
+                </table>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+{% endblock %}

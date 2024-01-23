@@ -1,0 +1,31 @@
+{
+  "loops": [
+    {
+      "name": "test2",
+      "id": "0",
+      "points": [
+        {
+          "x": 5,
+          "y": 9
+        },
+        {
+          "x": 8,
+          "y": 10
+        },
+        {
+          "x": 12,
+          "y": 13
+        },
+        {
+          "x": 13,
+          "y": 12
+        }
+      ],
+      "orientation": "clockwise",
+      "summary_location": {
+        "x": 11,
+        "y": "11"
+      }
+    }
+  ]
+}

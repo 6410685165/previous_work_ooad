@@ -1,0 +1,58 @@
+{
+  "loops": [
+    {
+      "name": "test2",
+      "id": "0",
+      "points": [
+        {
+          "x": 10,
+          "y": 100
+        },
+        {
+          "x": 10,
+          "y": 200
+        },
+        {
+          "x": 50,
+          "y": 100
+        },
+        {
+          "x": 10,
+          "y": 200
+        }
+      ],
+      "orientation": "clockwise",
+      "summary_location": {
+        "x": 50,
+        "y": "50"
+      }
+    },
+    {
+      "name": "60",
+      "id": "0",
+      "points": [
+        {
+          "x": 600,
+          "y": 60
+        },
+        {
+          "x": 600,
+          "y": 40
+        },
+        {
+          "x": 200,
+          "y": 60
+        },
+        {
+          "x": 200,
+          "y": 40
+        }
+      ],
+      "orientation": "counterclockwise",
+      "summary_location": {
+        "x": 20,
+        "y": "20"
+      }
+    }
+  ]
+}

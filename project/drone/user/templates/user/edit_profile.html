@@ -1,0 +1,35 @@
+{% extends task|add:'task/layout.html'%}
+
+{% block title %}Login{% endblock %}
+{% block body %}
+<body>
+    <h1>Edit Profile</h1>
+    <form method="post" enctype="multipart/form-data" action="edit_profile/">
+        {% csrf_token %}
+        <label>Upload Profile:</label>
+        <input type="file" name="file" accept="image/*">
+        <div class="form-controls">
+            {% if messages %}
+            <div>
+                {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <label style="margin-bottom: 10px;">First Name</label>
+            <input type="text" name="first_name" value="{{account.user.first_name}}">
+            <label style="margin-bottom: 10px;">Last Name</label>
+            <input type="text" name="last_name" value="{{account.user.last_name}}">
+            <label style="margin-bottom: 10px;">Email</label>
+            <input type="email" name="email" value="{{account.user.email}}">
+            <label style="margin-bottom: 10px;">Username</label>
+            <input type="text" name="username" value="{{account.user.username}}">
+            <label style="margin-bottom: 10px;">Password</label>
+            <input type="password" name="password1">
+            <label style="margin-bottom: 10px;">Confirm Password</label>
+            <input type="password" name="password2">
+            <input class="button" type="submit" value="SUBMIT">
+        </div>
+    </form>
+</body>
+{% endblock %}
